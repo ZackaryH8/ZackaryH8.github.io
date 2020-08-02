@@ -1,9 +1,63 @@
 <html>
     <head>
-        <title></title>
+        <title>ECML125 - Home</title>
+        <meta
+            name="viewport"
+            content="width=device-width,initial-scale=1,user-scalable=yes"
+        />
+        <meta charset="utf-8" />
+
+        <link rel="stylesheet" type="text/css" href="./css/style.css" />
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+            integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q"
+            crossorigin="anonymous"
+        />
     </head>
 
     <body>
-        <h1>Hello World</h1>
+        <nav class="navbar">
+            <span
+                class="navbar-toggle"
+                id="js-navbar-toggle"
+                onclick="toggleNavBar()"
+            >
+                <i class="fas fa-bars"></i>
+            </span>
+            <a href="#" class="logo">
+                <img id="navBarLogo" src="./img/logo_white.png" />
+            </a>
+            <ul class="main-nav" id="js-menu">
+                <li>
+                    <a href="#" class="nav-links">Home</a>
+                </li>
+                <li>
+                    <a href="#" class="nav-links">Pictures</a>
+                </li>
+                <li>
+                    <a href="#" class="nav-links">Videos</a>
+                </li>
+                <li>
+                    <a href="#" class="nav-links">Contact Us</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="slideshow">
+            <img
+                src="http://live.staticflickr.com/7843/40142405633_fc24a299c3_h.jpg"
+            />
+            <div id="slideshowTitle" class="centered">ECML125</div>
+        </div>
+        <button onclick="toggleDark()"></button>
+
+        <script src="js/darkMode.js"></script>
+        <script src="js/navbar.js"></script>
     </body>
 </html>
