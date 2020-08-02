@@ -8,6 +8,10 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
+.dark {
+    background-color: #3a3a3a;
+}
+
 .navbar {
     font-size: 18px;
     background-image: linear-gradient(260deg, #4a91c0 0%, #0061c7 100%);
