@@ -9,7 +9,17 @@ body {
 }
 
 .dark {
-    background-color: #3a3a3a;
+    background-color: #2e2e2e;
+}
+
+.darkButton {
+    position: sticky;
+    top: 93%;
+    left: 96%;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 100%;
 }
 
 .navbar {
@@ -52,6 +62,10 @@ body {
     cursor: pointer;
     color: rgba(255, 255, 255, 0.8);
     font-size: 24px;
+}
+
+.selected {
+    color: #fff;
 }
 
 .active {

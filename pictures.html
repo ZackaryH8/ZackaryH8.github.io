@@ -1,6 +1,9 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <title>ECML125 - Home</title>
+        <title>
+            ECML125 - Pictures
+        </title>
         <meta
             name="viewport"
             content="width=device-width,initial-scale=1,user-scalable=yes"
@@ -35,10 +38,12 @@
             </a>
             <ul class="main-nav" id="js-menu">
                 <li>
-                    <a href="./" class="nav-links selected">Home</a>
+                    <a href="./" class="nav-links">Home</a>
                 </li>
                 <li>
-                    <a href="./pictures.html" class="nav-links">Pictures</a>
+                    <a href="./pictures.html" class="nav-links selected"
+                        >Pictures</a
+                    >
                 </li>
                 <li>
                     <a href="./videos.html" class="nav-links">Videos</a>
@@ -49,15 +54,7 @@
             </ul>
         </nav>
 
-        <div class="slideshow">
-            <img
-                src="http://live.staticflickr.com/7843/40142405633_fc24a299c3_h.jpg"
-            />
-            <div id="slideshowTitle" class="centered">ECML125</div>
-        </div>
-        <button class="darkButton" onclick="toggleDark()">
-            <i class="far fa-lightbulb"></i>
-        </button>
+        <button onclick="toggleDark()">Dark Mode</button>
 
         <script src="js/darkMode.js"></script>
         <script src="js/navbar.js"></script>

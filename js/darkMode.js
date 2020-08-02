@@ -13,6 +13,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 function toggleDark() {
     document.body.classList.toggle("dark");
+    document.getElementById("darkToggle");
     if (darkMode == 0) {
         localStorage.setItem("darkToggle", 1);
     } else {
