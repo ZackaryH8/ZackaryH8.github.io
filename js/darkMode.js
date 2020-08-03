@@ -1,13 +1,15 @@
 let darkMode = localStorage.getItem("darkToggle");
 
 window.addEventListener("DOMContentLoaded", () => {
+    if (darkMode == 0) {
+        document.body.classList.remove("dark");
+    }
+    if (darkMode == 1) {
+        document.body.classList.add("dark");
+    }
     if (darkMode == null) {
         localStorage.setItem("darkToggle", 0);
         document.body.classList.remove("dark");
-    } else if (darkMode == 0) {
-        document.body.classList.remove("dark");
-    } else if (darkMode == 1) {
-        document.body.classList.add("dark");
     }
 });
 

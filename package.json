@@ -1,0 +1,25 @@
+{
+  "name": "zackaryh8.github.io",
+  "version": "1.0.0",
+  "description": "ECML125 Website Source",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZackaryH8/zackaryh8.github.io.git"
+  },
+  "author": "ZackaryH",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZackaryH8/zackaryh8.github.io/issues"
+  },
+  "homepage": "https://github.com/ZackaryH8/zackaryh8.github.io#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "flickr-sdk": "^3.9.0",
+    "node-fetch": "^2.6.0",
+    "unsplash-js": "^6.0.0"
+  }
+}
