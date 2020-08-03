@@ -150,16 +150,14 @@ body {
 }
 
 .galleryImage {
-    width: 600px;
+    width: 450px;
     margin: 5px;
     display: inline-block;
-}
-
-.galleryImage:hover {
 }
 
 .galleryDesc {
     border: 1px solid #383838;
     padding: 10px;
     text-align: center;
+    width: 100%;
 }

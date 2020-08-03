@@ -25,72 +25,54 @@
     </head>
 
     <body class="body">
-        <nav class="navbar">
-            <span
-                class="navbar-toggle"
-                id="js-navbar-toggle"
-                onclick="toggleNavBar()"
-            >
-                <i class="fas fa-bars"></i>
-            </span>
-            <a href="#" class="logo">
-                <img id="navBarLogo" src="./img/logo_white.png" />
-            </a>
-            <ul class="main-nav" id="js-menu">
-                <li>
-                    <a href="./" class="nav-links">Home</a>
-                </li>
-                <li>
-                    <a href="./pictures.html" class="nav-links selected"
-                        >Pictures</a
-                    >
-                </li>
-                <li>
-                    <a href="./videos.html" class="nav-links">Videos</a>
-                </li>
-                <li>
-                    <a href="./contact.html" class="nav-links">Contact Us</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="galleryCtr">
-            <div class="galleryImage">
-                <img
-                    src="http://live.staticflickr.com/7843/40142405633_fc24a299c3_h.jpg"
-                    width="600"
-                />
-                <div class="galleryDesc">Lorem Ipsum suck your mum 123</div>
+        <div id="app">
+            <nav class="navbar">
+                <span
+                    class="navbar-toggle"
+                    id="js-navbar-toggle"
+                    onclick="toggleNavBar()"
+                >
+                    <i class="fas fa-bars"></i>
+                </span>
+                <a href="#" class="logo">
+                    <img id="navBarLogo" src="./img/logo_white.png" />
+                </a>
+                <ul class="main-nav" id="js-menu">
+                    <li>
+                        <a href="./" class="nav-links">Home</a>
+                    </li>
+                    <li>
+                        <a href="./pictures.html" class="nav-links selected"
+                            >Pictures</a
+                        >
+                    </li>
+                    <li>
+                        <a href="./videos.html" class="nav-links">Videos</a>
+                    </li>
+                    <li>
+                        <a href="./contact.html" class="nav-links"
+                            >Contact Us</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+            <div class="galleryCtr" v-if="data">
+                <div
+                    class="galleryImage"
+                    v-for="(image, index) of data.items"
+                    :key="index"
+                >
+                    <img :src="image.media.m" width="450" />
+                    <div class="galleryDesc">{{ image.title }}</div>
+                </div>
             </div>
-
-            <div class="galleryImage">
-                <img
-                    src="http://live.staticflickr.com/7843/40142405633_fc24a299c3_h.jpg"
-                    width="600"
-                />
-                <div class="galleryDesc">Lorem Ipsum suck your mum 123</div>
-            </div>
-
-            <div class="galleryImage">
-                <img
-                    src="http://live.staticflickr.com/7843/40142405633_fc24a299c3_h.jpg"
-                    width="600"
-                />
-                <div class="galleryDesc">Lorem Ipsum suck your mum 123</div>
-            </div>
-
-            <div class="galleryImage">
-                <img
-                    src="http://live.staticflickr.com/7843/40142405633_fc24a299c3_h.jpg"
-                    width="600"
-                />
-                <div class="galleryDesc">Lorem Ipsum suck your mum 123</div>
-            </div>
+            <button class="darkButton" onclick="toggleDark()">
+                <i class="far fa-lightbulb"></i>
+            </button>
         </div>
 
-        <button class="darkButton" onclick="toggleDark()">
-            <i class="far fa-lightbulb"></i>
-        </button>
-
+        <script src="js/vue.min.js"></script>
+        <script src="js/flickr.js"></script>
         <script src="js/darkMode.js"></script>
         <script src="js/navbar.js"></script>
     </body>

@@ -1,13 +1,35 @@
-const url = "https://www.flickr.com/services/feeds/photos_public.gne";
+Vue.config.devtools = true;
+Vue.prototype.window = window;
 
-function file_get_contents(filename) {
-    fetch(filename)
-        .then((resp) => resp.text())
-        .then(function (data) {
-            return data;
-        });
-}
+const app = new Vue({
+    el: "#app",
+    data() {
+        return {
+            url:
+                "https://www.flickr.com/services/feeds/photos_public.gne?id=153939265@N07&format=json&callback=flickr_callback",
+            error: null,
+            data: null,
+        };
+    },
+    computed: {},
+    methods: {
+        jsonpRequest(url, callback) {
+            window["jsonFlickrFeed"] = function (data) {
+                delete window["jsonFlickrFeed"];
+                document.body.removeChild(script);
+                callback(data);
+            };
 
-const data = file_get_contents(url);
-
-console.log(data);
+            const script = document.createElement("script");
+            script.src = url;
+            document.body.appendChild(script);
+        },
+        imagesCallback(data) {
+            this.data = data;
+            console.log(this.data);
+        },
+    },
+    mounted() {
+        this.jsonpRequest(this.url, this.imagesCallback);
+    },
+});

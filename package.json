@@ -20,6 +20,7 @@
     "dotenv": "^8.2.0",
     "flickr-sdk": "^3.9.0",
     "node-fetch": "^2.6.0",
-    "unsplash-js": "^6.0.0"
+    "unsplash-js": "^6.0.0",
+    "xml-js": "^1.6.11"
   }
 }
