@@ -179,8 +179,5 @@ body {
 
 .noDecor {
     text-decoration: none;
-}
-
-.noDecor:link {
     color: #fff !important;
 }

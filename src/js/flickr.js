@@ -5,7 +5,7 @@ const app = new Vue({
     el: "#app",
     data() {
         return {
-            url: `${process.env.API_KEY}/api/getphotos`,
+            url: "http://81.151.29.103:3000/api/getphotos",
             error: null,
             data: null,
         };
