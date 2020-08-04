@@ -5,7 +5,7 @@ const app = new Vue({
     el: "#app",
     data() {
         return {
-            url: "http://81.151.29.103:3000/api/getphotos",
+            url: "https://xentv.co.uk/express/api/getphotos",
             error: null,
             data: null,
         };
