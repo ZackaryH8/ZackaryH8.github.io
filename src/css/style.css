@@ -84,7 +84,6 @@ body {
 
     .main-nav {
         display: flex;
-        margin-right: 30px;
         flex-direction: row;
         justify-content: flex-end;
     }

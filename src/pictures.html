@@ -59,16 +59,15 @@
             <div class="galleryCtr" v-if="data">
                 <div
                     class="galleryImage"
-                    v-for="(image, index) of data.items"
+                    v-for="(image, index) of data.photoset.photo"
                     :key="index"
                 >
-                    <img :src="image.media.m" width="450" />
-                    <div class="galleryDesc">{{ image.title }}</div>
+                    <img :src="image.url_m" width="450" />
+                    <div class="galleryDesc">
+                        {{ image.title }}
+                    </div>
                 </div>
             </div>
-            <button class="darkButton" onclick="toggleDark()">
-                <i class="far fa-lightbulb"></i>
-            </button>
         </div>
 
         <script src="js/vue.min.js"></script>
