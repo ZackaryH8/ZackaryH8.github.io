@@ -5,7 +5,7 @@ const app = new Vue({
     el: "#app",
     data() {
         return {
-            url: "http://localhost:3000/api/getphotos",
+            url: "http://81.151.29.103:3000/api/getphotos",
             error: null,
             data: null,
         };
