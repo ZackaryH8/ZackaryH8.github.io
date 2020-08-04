@@ -6,13 +6,11 @@
 
 body {
     font-family: "Roboto", sans-serif;
-    background-color: #fff;
-    color: #000;
+    background-color: #383838;
 }
 
-.dark {
-    background-color: #2e2e2e;
-    color: #fff;
+.dark a {
+    color: #fff !important;
 }
 
 .darkButton {
@@ -157,7 +155,7 @@ body {
 }
 
 .galleryDesc {
-    border: 1px solid #383838;
+    border: 1px solid #4a4a4a;
     padding: 10px;
     text-align: center;
     width: 100%;
@@ -181,5 +179,7 @@ body {
 
 .noDecor {
     text-decoration: none;
-    color: #fff !important;
+}
+
+.noDecor a {
 }
