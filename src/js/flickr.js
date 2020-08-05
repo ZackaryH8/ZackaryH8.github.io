@@ -7,30 +7,61 @@ const app = new Vue({
         return {
             url: "https://xentv.co.uk/express/api/getphotos",
             error: null,
-            data: null,
+            limit: 16,
+            data: [],
+            busy: false,
             specificImage: null,
         };
     },
     computed: {},
     methods: {
-        getImages(url) {
+        loadMore(url) {
+            console.log("Adding 10 more data results");
+            this.busy = true;
             fetch(url, {
                 method: "GET",
                 headers: { "content-Type": "application/json" },
             }).then((res) => {
                 res.json().then((json) => {
-                    this.data = json;
+                    console.log(json.photoset.photo);
+                    const append = json.photoset.photo.slice(
+                        this.data.length,
+                        this.data.length + this.limit
+                    );
+                    console.log(append);
+                    this.data = this.data.concat(append);
+                    this.busy = false;
                 });
             });
         },
         getSpecificImage(id) {
-            this.specificImage = this.data.photoset.photo[id];
+            this.specificImage = this.data[id];
         },
         closeModal() {
-            this.specificImage = null;
+            if (this.specificImage) {
+                this.specificImage = null;
+            }
+        },
+        scroll() {
+            window.onscroll = () => {
+                let bottomOfWindow =
+                    Math.max(
+                        window.pageYOffset,
+                        document.documentElement.scrollTop,
+                        document.body.scrollTop
+                    ) +
+                        window.innerHeight ===
+                    document.documentElement.offsetHeight;
+
+                if (bottomOfWindow) {
+                    console.log("Hi");
+                    this.loadMore(this.url);
+                }
+            };
         },
     },
     mounted() {
-        this.getImages(this.url);
+        this.scroll();
+        this.loadMore(this.url);
     },
 });
