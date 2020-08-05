@@ -8,6 +8,7 @@ const app = new Vue({
             url: "https://xentv.co.uk/express/api/getphotos",
             error: null,
             data: null,
+            specificImage: null,
         };
     },
     computed: {},
@@ -21,6 +22,12 @@ const app = new Vue({
                     this.data = json;
                 });
             });
+        },
+        getSpecificImage(id) {
+            this.specificImage = this.data.photoset.photo[id];
+        },
+        closeModal() {
+            this.specificImage = null;
         },
     },
     mounted() {
