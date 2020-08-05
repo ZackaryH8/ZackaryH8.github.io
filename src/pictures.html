@@ -22,6 +22,7 @@
             integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q"
             crossorigin="anonymous"
         />
+        <script src="js/navbar.js"></script>
     </head>
 
     <body class="body">
@@ -42,7 +43,9 @@
                         <a href="./" class="nav-links">Home</a>
                     </li>
                     <li>
-                        <a href="./pictures.html" class="nav-links selected"
+                        <a
+                            href="./pictures.html"
+                            class="nav-links selected selected"
                             >Pictures</a
                         >
                     </li>
@@ -56,27 +59,49 @@
                     </li>
                 </ul>
             </nav>
+
+            <!-- Modal -->
+            <div class="modal" v-if="specificImage">
+                <div class="modal-content">
+                    <span class="close" @click="closeModal()">&times;</span>
+                    <img :src="specificImage.url_l" />
+                </div>
+            </div>
+
+            <!-- Gallery -->
             <div class="galleryCtr" v-if="data">
+                <h1>Flickr Images</h1>
+                <p>
+                    Here are all of my images that I have taken, All Rights
+                    Reserved
+                </p>
+                <br />
                 <div
                     class="galleryImage hvr-grow"
-                    v-for="(image, index) of data.photoset.photo"
+                    v-for="(image, index) in data.photoset.photo"
                     :key="index"
+                    @click="getSpecificImage(index)"
                 >
-                    <a class="noDecor" href="#">
-                        <img :src="image.url_m" width="450" />
-                        <div class="galleryDesc">
-                            {{ image.title }}
-                        </div>
-                    </a>
+                    <img :src="image.url_m" width="100%" />
+                    <div class="galleryDesc bottom-right">
+                        <i class="far fa-eye"></i>
+                        {{ image.views }}
+                    </div>
+                    <div class="galleryTitle">
+                        {{ image.title }}
+                    </div>
+                    <div class="galleryDesc centered2">
+                        {{ image.description._content }}
+                    </div>
                 </div>
             </div>
         </div>
+
         <!-- <button class="darkButton" onclick="toggleDark()">
             <i class="far fa-lightbulb"></i>
         </button> -->
 
         <script src="js/vue.min.js"></script>
         <script src="js/flickr.js"></script>
-        <script src="js/navbar.js"></script>
     </body>
 </html>
