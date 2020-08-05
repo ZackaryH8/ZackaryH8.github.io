@@ -25,7 +25,7 @@
         <script src="js/navbar.js"></script>
     </head>
 
-    <body class="body">
+    <body class="body" @scroll="onScroll">
         <div id="app">
             <nav class="navbar">
                 <span
@@ -78,7 +78,7 @@
                 <br />
                 <div
                     class="galleryImage hvr-grow"
-                    v-for="(image, index) in data.photoset.photo"
+                    v-for="(image, index) in data"
                     :key="index"
                     @click="getSpecificImage(index)"
                 >
