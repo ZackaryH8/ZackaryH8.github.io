@@ -8,8 +8,8 @@ const url = `https://api.flickr.com/services/rest?method=flickr.photosets.getPho
 const app = express();
 
 const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 250, // limit each IP to 250 requests per windowMs
+    windowMs: 60 * 60000, // 60 minutes
+    max: 128, // limit each IP to 250 requests per windowMs
 });
 
 app.use(cors());
@@ -29,5 +29,3 @@ app.listen("3000", function (error) {
     if (error) throw error;
     console.log("Server Started");
 });
-
-//Dzeknjak is a god 03/08/2020
