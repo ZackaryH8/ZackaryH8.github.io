@@ -16,7 +16,7 @@ const app = new Vue({
     computed: {},
     methods: {
         loadMore(url) {
-            console.log("Adding 10 more data results");
+            console.log("Loading 16 more images");
             this.busy = true;
             fetch(url, {
                 method: "GET",
@@ -52,7 +52,7 @@ const app = new Vue({
                     document.documentElement.offsetHeight;
 
                 if (bottomOfWindow) {
-                    console.log("Hi");
+                    console.log("Loaded 16 more images");
                     this.loadMore(this.url);
                 }
             };
