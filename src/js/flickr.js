@@ -9,32 +9,39 @@ const app = new Vue({
             error: null,
             limit: 16,
             data: [],
+            cachedData: null,
             busy: false,
             specificImage: null,
         };
     },
     computed: {},
     methods: {
-        loadMore(url) {
-            console.log("Loading 16 more images");
-            this.busy = true;
+        loadFirst(url) {
             fetch(url, {
                 method: "GET",
                 headers: { "content-Type": "application/json" },
             }).then((res) => {
                 res.json().then((json) => {
-                    const append = json.photoset.photo.slice(
-                        this.data.length,
-                        this.data.length + this.limit
-                    );
-                    this.data = this.data.concat(append);
-                    this.busy = false;
+                    this.cachedData = json;
+                    this.loadMore();
                 });
             });
         },
+
+        loadMore() {
+            const append = this.cachedData.photoset.photo.slice(
+                this.data.length,
+                this.data.length + this.limit
+            );
+            this.data = this.data.concat(append);
+            this.busy = false;
+            console.log("Loaded 16 more images");
+        },
+
         getSpecificImage(id) {
             this.specificImage = this.data[id];
         },
+
         closeModal() {
             if (this.specificImage) {
                 this.specificImage = null;
@@ -52,14 +59,13 @@ const app = new Vue({
                     document.documentElement.offsetHeight;
 
                 if (bottomOfWindow) {
-                    console.log("Loaded 16 more images");
-                    this.loadMore(this.url);
+                    this.loadMore();
                 }
             };
         },
     },
     mounted() {
         this.scroll();
-        this.loadMore(this.url);
+        this.loadFirst(this.url);
     },
 });

@@ -9,7 +9,8 @@ const app = express();
 
 const limiter = rateLimit({
     windowMs: 60 * 60000, // 60 minutes
-    max: 128, // limit each IP to 250 requests per windowMs
+    max: 128, // limit each IP to 128 requests per windowMs
+    message: "Too many requests to ECML125 API, please try again later",
 });
 
 app.use(cors());
@@ -21,6 +22,7 @@ app.get("/api/getphotos", function (req, res) {
         .then((response) => response.json())
         .then((data) => {
             res.send(data);
+            console.log(`[RES] ${req.connection.remoteAddress}`);
         });
 });
 
