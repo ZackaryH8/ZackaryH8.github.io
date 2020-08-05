@@ -23,12 +23,10 @@ const app = new Vue({
                 headers: { "content-Type": "application/json" },
             }).then((res) => {
                 res.json().then((json) => {
-                    console.log(json.photoset.photo);
                     const append = json.photoset.photo.slice(
                         this.data.length,
                         this.data.length + this.limit
                     );
-                    console.log(append);
                     this.data = this.data.concat(append);
                     this.busy = false;
                 });
