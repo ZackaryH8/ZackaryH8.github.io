@@ -189,6 +189,9 @@ body a {
 
 .galleryDesc {
     display: none;
+    opacity: 1;
+    filter: blur(none);
+    -webkit-filter: blur(none);
 }
 
 /* Grow Animation */

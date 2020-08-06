@@ -69,6 +69,7 @@
             </div>
 
             <!-- Gallery -->
+            <div class="galleryCtr" v-if="data"></div>
             <div class="galleryCtr" v-if="data">
                 <h1>Flickr Images</h1>
                 <p>
@@ -76,6 +77,13 @@
                     Reserved
                 </p>
                 <br />
+                <!-- Error -->
+                <div v-if="errMsg">
+                    <br />
+                    <h2>
+                        {{ errMsg }}
+                    </h2>
+                </div>
                 <div
                     class="galleryImage hvr-grow"
                     v-for="(image, index) in data"

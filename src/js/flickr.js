@@ -12,6 +12,7 @@ const app = new Vue({
             cachedData: null,
             busy: false,
             specificImage: null,
+            errMsg: null,
         };
     },
     computed: {},
@@ -20,12 +21,21 @@ const app = new Vue({
             fetch(url, {
                 method: "GET",
                 headers: { "content-Type": "application/json" },
-            }).then((res) => {
-                res.json().then((json) => {
-                    this.cachedData = json;
-                    this.loadMore();
+            })
+                .then((res) => {
+                    res.json().then((json) => {
+                        localStorage.setItem(
+                            "cachedData",
+                            JSON.stringify(json)
+                        );
+                        this.cachedData = json;
+                        this.loadMore();
+                    });
+                })
+                .catch((err) => {
+                    this.errMsg =
+                        "Sorry we can not process that request, please try again later!";
                 });
-            });
         },
 
         loadMore() {
@@ -63,9 +73,21 @@ const app = new Vue({
                 }
             };
         },
+        oneHourCheck(date) {},
     },
     mounted() {
         this.scroll();
-        this.loadFirst(this.url);
+
+        if (
+            localStorage.getItem("lastUpdate") == null ||
+            new Date() - localStorage.getItem("lastUpdate") >= 1000 * 60 * 60
+        ) {
+            this.loadFirst(this.url);
+            const currentTime = new Date().getTime();
+            localStorage.setItem("lastUpdate", currentTime);
+        } else {
+            this.cachedData = JSON.parse(localStorage.getItem("cachedData"));
+            this.loadMore();
+        }
     },
 });
