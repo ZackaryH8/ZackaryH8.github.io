@@ -8,7 +8,7 @@ const url = `https://api.flickr.com/services/rest?method=flickr.photosets.getPho
 const app = express();
 
 const limiter = rateLimit({
-    windowMs: 60 * 60000, // 60 minutes
+    windowMs: 3600000, // 60 minutes
     max: 128, // limit each IP to 128 requests per windowMs
     message: "Too many requests to ECML125 API, please try again later",
 });
