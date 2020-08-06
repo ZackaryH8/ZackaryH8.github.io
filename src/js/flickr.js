@@ -59,17 +59,16 @@ const app = new Vue({
         },
         scroll() {
             window.onscroll = () => {
-                let bottomOfWindow =
-                    Math.max(
-                        window.pageYOffset,
-                        document.documentElement.scrollTop,
-                        document.body.scrollTop
-                    ) +
-                        window.innerHeight ===
-                    document.documentElement.offsetHeight;
+                var d = document.documentElement;
+                var offset = d.scrollTop + window.innerHeight;
+                var height = d.offsetHeight;
 
-                if (bottomOfWindow) {
-                    this.loadMore();
+                console.log("offset = " + offset);
+                console.log("height = " + height);
+
+                if (offset >= height - 100) {
+                    console.log("At the bottom");
+                    this.loadMore(); // call function here
                 }
             };
         },
