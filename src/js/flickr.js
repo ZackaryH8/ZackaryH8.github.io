@@ -73,7 +73,6 @@ const app = new Vue({
                 }
             };
         },
-        oneHourCheck(date) {},
     },
     mounted() {
         this.scroll();
